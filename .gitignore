@@ -10,7 +10,6 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
-/Assets/TemplateAssets/
 /.vscode/
 
 
@@ -74,5 +73,3 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-
-TemplateAssets.meta
