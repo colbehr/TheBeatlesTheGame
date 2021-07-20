@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class HideController : MonoBehaviour
 {
-    public Camera MainCamera;
-    public Camera HideCamera;
-    public float rotSpeed = 100f;
-    public GameObject Player;
+    //audio
+    public AudioClip openClip;
+    public AudioClip closeClip;
 
+    //cameras
+    //hidecamera has to be set in inspector
+    public Camera HideCamera;
+    private Camera MainCamera;
+    //speed for turning in the hiding spot
+    public float rotSpeed = 100f;
+    private GameObject Player;
     bool canEnter = false;
     bool inHiding = false;
-    GameObject HideAnimate;
     Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        HideAnimate = this.gameObject.transform.GetChild(0).gameObject;
-        anim = HideAnimate.GetComponent<Animator>();
+        //this grabs the first child's animator component, so the animatable component eg. lid/door/etc. should be the first child. 
+        anim = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        Player = GameObject.FindGameObjectsWithTag("Player")[0];
         MainCamera = Camera.main;
         MainCamera.enabled = true;
         HideCamera.enabled = false;
@@ -26,51 +32,65 @@ public class HideController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //we have to interact
+        if (canEnter)
+        { 
+            interact();
+        }
         //camera rotate according to mouse
-        float h = Input.GetAxis("Mouse X") * rotSpeed * Time.deltaTime;
-        HideCamera.transform.Rotate(0, h, 0);
-        interact();
-
+        if (inHiding)
+        {
+            float h = Input.GetAxis("Mouse X") * rotSpeed * Time.deltaTime;
+            HideCamera.transform.Rotate(0, h, 0);
+        }
     }
 
-    void OnTriggerEnter(Collider player)
+    void OnTriggerEnter(Collider c)
     {
-        if (player.tag == "Player")
+        if (c.tag == "Player")
         {
             canEnter = true;
+            //play sound
+            GetComponent<AudioSource>().PlayOneShot(openClip);
+
             anim.SetBool("Open", true);
             //show hide ui
         }
     }
-    void OnTriggerExit(Collider player)
+    void OnTriggerExit(Collider c)
     {
-        if (player.tag == "Player")
+        if (c.tag == "Player")
         {
             canEnter = false;
+            GetComponent<AudioSource>().PlayOneShot(closeClip);
             anim.SetBool("Open", false);
             // hide hide ui
         }
     }
-
 
     void interact()
     {
         // change main camera to this camera 
         if (Input.GetKeyDown(KeyCode.E) && !inHiding)
         {
-            // hide player 
+            // hide player model
             Player.SetActive(false);
-            print("Player Gets in");
+            // print("Player Gets in");
             MainCamera.enabled = false;
+            //we have to swap the audio listener from the player to the new camera because we are hiding the main character
+            Player.GetComponent<AudioListener>().enabled = false;
             HideCamera.enabled = true;
+            HideCamera.GetComponent<AudioListener>().enabled = true;
             inHiding = true;
         }
         else if (inHiding && Input.GetKeyDown(KeyCode.E))
         {
             Player.SetActive(true);
-            print("Player Leaves");
+            // print("Player Leaves");
             MainCamera.enabled = true;
+            Player.GetComponent<AudioListener>().enabled = true;
             HideCamera.enabled = false;
+            HideCamera.GetComponent<AudioListener>().enabled = false;
             inHiding = false;
         }
     }
