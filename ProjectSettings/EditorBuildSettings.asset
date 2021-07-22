@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/tutorial.unity
+    guid: 51ad5cc3a4922384782514b1d79da86c
+  - enabled: 1
+    path: Assets/Scenes/HillNight.unity
+    guid: d3604de570fd7f143acdb39beb7fee13
+  - enabled: 1
+    path: Assets/Scenes/GreyPeople.unity
+    guid: 96a469c9f0746574bb02bfb5a464c0e0
+  - enabled: 1
+    path: Assets/Scenes/GreenNight.unity
+    guid: 386130e5e39a7a24883a8734fe89a7a4
+  - enabled: 1
+    path: Assets/Scenes/GreenDay.unity
+    guid: b1cf020028dc1e842a551dbf81fbc1c1
   m_configObjects: {}
