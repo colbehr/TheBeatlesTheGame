@@ -5,30 +5,48 @@ using UnityEngine.AI;
 
 public class Meanie : MonoBehaviour
 {
-    private Transform[] points;
+    private Vector3[] points;
     private int destination = 0;
     private NavMeshAgent agent;
+    private GameObject player;
+    private bool chasing;
 
     void Start()
     {
+        chasing = false;
         agent = GetComponent<NavMeshAgent>();
-        //agent.autoBraking = false;
+        player = GameObject.FindWithTag("Player");
 
         // Set up patrol points based of child points
-        points = new Transform[gameObject.transform.GetChild(0).transform.childCount];
+        points = new Vector3[gameObject.transform.childCount];
 
         for (int i = 0; i < points.Length; i++)
         {
-            points[i] = gameObject.transform.GetChild(0).transform.GetChild(i).transform;
+            points[i] = gameObject.transform.GetChild(i).position;
         }
         GotoNextPoint();
     }
 
     void Update()
     {
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > 10 || !player.active)
         {
-            GotoNextPoint();
+            if (!chasing)
+            {
+                if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                {
+                    GotoNextPoint();
+                }
+            }
+            else
+            {
+                GotoNextPoint();
+            }
+        }
+        else
+        {
+            chasing = true;
+            agent.destination = player.transform.position;
         }
     }
 
@@ -38,7 +56,7 @@ public class Meanie : MonoBehaviour
         if (points.Length != 0)
         {
             // Move to the next point
-            agent.destination = points[destination].position;
+            agent.destination = points[destination];
 
             // Go to the next point, restart when path is completed
             destination = (destination + 1) % points.Length;
