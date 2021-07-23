@@ -20,11 +20,11 @@ public class Meanie : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         // Set up patrol points based of child points
-        points = new Vector3[gameObject.transform.childCount];
+        points = new Vector3[transform.Find("Path").childCount];
 
         for (int i = 0; i < points.Length; i++)
         {
-            points[i] = gameObject.transform.GetChild(i).position;
+            points[i] = transform.Find("Path").GetChild(i).position;
         }
         GotoNextPoint();
     }
@@ -35,7 +35,7 @@ public class Meanie : MonoBehaviour
         float angle = Vector3.Angle(player.transform.position - transform.position, transform.forward);
         float dist = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
-        if(dist < 5.5)
+        if(dist < 1)
         {
             player.gameObject.GetComponent<characterMovement>().Caught();
         }
