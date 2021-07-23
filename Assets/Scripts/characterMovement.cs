@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class characterMovement : MonoBehaviour
 {
@@ -79,5 +80,10 @@ public class characterMovement : MonoBehaviour
             velocity = animator.velocity;
             velocity.y = Mathf.Sqrt(2 * gravity * jumpHeight);
         }
+    }
+
+    public void Caught()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

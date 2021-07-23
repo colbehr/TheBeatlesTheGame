@@ -11,6 +11,8 @@ public class Meanie : MonoBehaviour
     private GameObject player;
     private bool chasing;
 
+    private NavMeshHit hit;
+
     void Start()
     {
         chasing = false;
@@ -29,7 +31,37 @@ public class Meanie : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > 10 || !player.active)
+
+        float angle = Vector3.Angle(player.transform.position - transform.position, transform.forward);
+        float dist = Vector3.Distance(gameObject.transform.position, player.transform.position);
+
+        if(dist < 5.5)
+        {
+            player.gameObject.GetComponent<characterMovement>().Caught();
+        }
+
+        if (chasing)
+        {
+            if(agent.Raycast(player.transform.position, out hit) || dist > 50 || !player.activeSelf)
+            {
+                chasing = false;
+                GotoNextPoint();
+            }
+
+            else
+            {
+                agent.destination = player.transform.position;
+            }
+        }
+
+        else if (!agent.Raycast(player.transform.position, out hit) && player.activeSelf && 
+            dist < 30 && angle > -90 && angle < 90)
+        {
+            chasing = true;
+            agent.destination = player.transform.position; 
+        }
+
+        else if (dist > 10 || !player.activeSelf)
         {
             if (!chasing)
             {
@@ -40,6 +72,7 @@ public class Meanie : MonoBehaviour
             }
             else
             {
+                chasing = false;
                 GotoNextPoint();
             }
         }
@@ -62,4 +95,12 @@ public class Meanie : MonoBehaviour
             destination = (destination + 1) % points.Length;
         }
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+      //  if (collision.transform.CompareTag("Player"))
+        //{
+          //  collision.gameObject.GetComponent<characterMovement>().Caught();
+        //}
+    //}
 }
