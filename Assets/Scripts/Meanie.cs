@@ -9,7 +9,7 @@ public class Meanie : MonoBehaviour
     private int destination = 0;
     private NavMeshAgent agent;
     private GameObject player;
-    private bool chasing;
+    public bool chasing;
     private NavMeshHit hit;
     private bool alerted;
 
@@ -35,6 +35,7 @@ public class Meanie : MonoBehaviour
         if (alerted)
         {
             agent.destination = player.transform.position;
+            chasing = true;
         }
 
         else

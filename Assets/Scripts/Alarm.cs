@@ -41,8 +41,11 @@ public class Alarm : MonoBehaviour
 
         else
         {
-            alerted = false;
-            CancelAlert();
+            if (alerted)
+            {
+                alerted = false;
+                CancelAlert();
+            }
         }
     }
 
