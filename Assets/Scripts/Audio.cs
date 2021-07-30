@@ -31,6 +31,7 @@ public class Audio : MonoBehaviour
         {
             music.clip = Resources.Load<AudioClip>("March of the Meanies");
             music.Play();
+            return;
         }
 
         else if (!chase && music.clip.name == "March of the Meanies")
