@@ -113,5 +113,6 @@ public class Meanie : MonoBehaviour
     public void AlarmCancelled()
     {
         alerted = false;
+        agent.destination = points[destination];
     }
 }
