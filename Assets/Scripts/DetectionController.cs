@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Audio : MonoBehaviour
+public class DetectionController : MonoBehaviour
 {
     private GameObject[] meanies;
     private AudioSource music;
+    private GameObject eye;
 
     // Start is called before the first frame update
     void Start()
     {
         meanies = GameObject.FindGameObjectsWithTag("Meanie");
         music = GetComponent<AudioSource>();
+        eye = GameObject.Find("Canvas").transform.Find("Image").gameObject;
     }
 
     // Update is called once per frame
@@ -27,17 +29,24 @@ public class Audio : MonoBehaviour
             }
         }
 
-        if (chase && music.clip.name == "Pepperland")
+        if (chase)
         {
-            music.clip = Resources.Load<AudioClip>("March of the Meanies");
-            music.Play();
-            return;
+            eye.SetActive(true);
+            if (music.clip.name == "Pepperland")
+            {
+                music.clip = Resources.Load<AudioClip>("March of the Meanies");
+                music.Play();
+                return;
+            }
         }
-
-        else if (!chase && music.clip.name == "March of the Meanies")
+        else
         {
-            music.clip = Resources.Load<AudioClip>("Pepperland");
-            music.Play();
+            eye.SetActive(false);
+            if (music.clip.name == "March of the Meanies")
+            {
+                music.clip = Resources.Load<AudioClip>("Pepperland");
+                music.Play();
+            }
         }
     }
 }
