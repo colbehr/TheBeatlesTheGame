@@ -1284,8 +1284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 341, y: 97.777}
-  m_SizeDelta: {x: 336.80334, y: 216.43149}
+  m_AnchoredPosition: {x: 385.94, y: 97.777}
+  m_SizeDelta: {x: 426.69153, y: 216.43149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &598853327
 MonoBehaviour:
@@ -1308,9 +1308,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Movement: WASD Keys
 
+    Jump: Space Bar
+
     Camera: Mouse
 
-    Hide: E Key'
+    Hide:
+    E Key'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5565b52f6922eeb4a9e8e29058a87df2, type: 2}
   m_sharedMaterial: {fileID: 1483656441379582208, guid: 5565b52f6922eeb4a9e8e29058a87df2,
