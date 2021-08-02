@@ -7,6 +7,8 @@ public class DetectionController : MonoBehaviour
     private GameObject[] meanies;
     private AudioSource music;
     private GameObject eye;
+    public AudioClip suspense;
+    public AudioClip safe;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +36,7 @@ public class DetectionController : MonoBehaviour
             eye.SetActive(true);
             if (music.clip.name == "Pepperland")
             {
-                music.clip = Resources.Load<AudioClip>("March of the Meanies");
+                music.clip = suspense;
                 music.Play();
                 return;
             }
@@ -44,7 +46,7 @@ public class DetectionController : MonoBehaviour
             eye.SetActive(false);
             if (music.clip.name == "March of the Meanies")
             {
-                music.clip = Resources.Load<AudioClip>("Pepperland");
+                music.clip = safe;
                 music.Play();
             }
         }
