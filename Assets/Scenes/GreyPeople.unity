@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 120.11129, g: 170.86487, b: 192.20107, a: 1}
+  m_IndirectSpecularColor: {r: 120.1108, g: 170.86438, b: 192.1996, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8722,12 +8722,12 @@ PrefabInstance:
     - target: {fileID: 1537761512291084389, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00003934455
+      value: -0.000039335984
       objectReference: {fileID: 0}
     - target: {fileID: 1537761512291084389, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000003669071
+      value: 0.0000036682725
       objectReference: {fileID: 0}
     - target: {fileID: 1537761512665401228, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
@@ -8737,17 +8737,17 @@ PrefabInstance:
     - target: {fileID: 1537761512665401228, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.110899806
+      value: 0.1108998
       objectReference: {fileID: 0}
     - target: {fileID: 1537761512665401228, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00003929688
+      value: -0.000039266328
       objectReference: {fileID: 0}
     - target: {fileID: 1537761512665401228, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000004385064
+      value: 0.0000043816553
       objectReference: {fileID: 0}
     - target: {fileID: 1537761513132998324, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
@@ -8807,17 +8807,17 @@ PrefabInstance:
     - target: {fileID: 1537761513222455325, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.110539205
+      value: 0.1105392
       objectReference: {fileID: 0}
     - target: {fileID: 1537761513222455325, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000039312556
+      value: -0.00003923872
       objectReference: {fileID: 0}
     - target: {fileID: 1537761513222455325, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000043723726
+      value: 0.0000043641608
       objectReference: {fileID: 0}
     - target: {fileID: 1537761513373273533, guid: 09a88f3483651f1459bf6912d725f3dd,
         type: 3}
@@ -9958,6 +9958,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followObject: {fileID: 1980588421}
   maxTime: 1
+--- !u!136 &425636643
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425636638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3298993
+  m_Height: 2.0114126
+  m_Direction: 1
+  m_Center: {x: 0.0037937164, y: 1.1260495, z: 0}
 --- !u!1 &434419891
 GameObject:
   m_ObjectHideFlags: 0
@@ -24969,6 +24983,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 100686630}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &1875488747
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875488742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3298993
+  m_Height: 2.0114126
+  m_Direction: 1
+  m_Center: {x: 0.0037937164, y: 1.1260495, z: 0}
 --- !u!1001 &1876189289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26168,6 +26196,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followObject: {fileID: 1875488742}
   maxTime: 0.3
+--- !u!136 &1980588426
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980588421}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3298993
+  m_Height: 2.0114126
+  m_Direction: 1
+  m_Center: {x: 0.0037937164, y: 1.1260495, z: 0}
 --- !u!1 &1987917629 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e37ab02a0eba7c4892c7fafc05d2046,

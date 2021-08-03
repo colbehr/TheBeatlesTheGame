@@ -350,4 +350,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aea965856a42915468f14e431b70d34b, type: 2}
   beforeTransparentCustomPostProcesses: []
   beforePostProcessCustomPostProcesses: []
-  afterPostProcessCustomPostProcesses: []
+  afterPostProcessCustomPostProcesses:
+  - Pixelation, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
