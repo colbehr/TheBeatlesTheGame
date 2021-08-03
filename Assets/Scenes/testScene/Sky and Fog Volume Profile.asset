@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.5
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
     max: 10
   groundTint:
     m_OverrideState: 1
-    m_Value: {r: 0.12437701, g: 0.24695094, b: 0.4056604, a: 1}
+    m_Value: {r: 0.12549022, g: 0.27306408, b: 0.40392157, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 0
@@ -262,14 +262,14 @@ MonoBehaviour:
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 44.8
+    m_Value: 40
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
   anisotropy:
     m_OverrideState: 1
-    m_Value: 0.78
+    m_Value: 0.709
     min: -1
     max: 1
   globalLightProbeDimmer:
