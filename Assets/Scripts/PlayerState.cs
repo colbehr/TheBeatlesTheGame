@@ -30,5 +30,8 @@ public class PlayerState : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+    public void addBeatle(){
+        beatlesGathered++;
+    }
     
 }
