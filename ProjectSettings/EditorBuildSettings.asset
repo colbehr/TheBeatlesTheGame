@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GreyPeople.unity
     guid: 96a469c9f0746574bb02bfb5a464c0e0
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: b6e80483dffbf3b468153171892749b8
   m_configObjects: {}
