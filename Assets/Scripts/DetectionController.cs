@@ -34,7 +34,7 @@ public class DetectionController : MonoBehaviour
         if (chase)
         {
             eye.SetActive(true);
-            if (music.clip.name == "Pepperland")
+            if (music.clip.name == "Pepperland" || music.clip.name == "Sea Of Time")
             {
                 music.clip = suspense;
                 music.Play();
