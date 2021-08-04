@@ -70,7 +70,7 @@ public class Meanie : MonoBehaviour
 
             // Player spotted
             else if (!agent.Raycast(player.transform.position, out hit) && player.activeSelf &&
-                dist < 30 && angle > -90 && angle < 90)
+                dist < 30 && angle > -70 && angle < 70)
             {
                 chasing = true;
                 agent.destination = player.transform.position;
