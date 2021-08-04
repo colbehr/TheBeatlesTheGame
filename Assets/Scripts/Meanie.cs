@@ -32,6 +32,7 @@ public class Meanie : MonoBehaviour
 
     void Update()
     {
+        // Alarm sounded, player location is known
         if (alerted)
         {
             agent.destination = player.transform.position;
@@ -44,25 +45,30 @@ public class Meanie : MonoBehaviour
             float angle = Vector3.Angle(player.transform.position - transform.position, transform.forward);
             float dist = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
+            // Catch the player
             if (dist < 1)
             {
                 player.gameObject.GetComponent<characterMovement>().Caught();
             }
 
+            // Currently chasing the player
             if (chasing)
             {
+                // Lost sight of the player
                 if (agent.Raycast(player.transform.position, out hit) || dist > 50 || !player.activeSelf)
                 {
                     chasing = false;
                     GotoNextPoint();
                 }
 
+                // Keep chasing
                 else
                 {
                     agent.destination = player.transform.position;
                 }
             }
 
+            // Player spotted
             else if (!agent.Raycast(player.transform.position, out hit) && player.activeSelf &&
                 dist < 30 && angle > -90 && angle < 90)
             {
@@ -70,7 +76,7 @@ public class Meanie : MonoBehaviour
                 agent.destination = player.transform.position;
             }
 
-            else if (dist > 10 || !player.activeSelf)
+            else if (dist > 1 || !player.activeSelf)
             {
                 if (!chasing)
                 {
@@ -85,13 +91,9 @@ public class Meanie : MonoBehaviour
                     GotoNextPoint();
                 }
             }
-            else
-            {
-                chasing = true;
-                agent.destination = player.transform.position;
-            }
         }
     }
+
 
     private void GotoNextPoint()
     {
