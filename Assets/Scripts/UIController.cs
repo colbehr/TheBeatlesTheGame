@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
     public Sprite eyesOpen;
     public Sprite eyesClosed;
     public Text timeText;
+    public Text interactText;
     public Image Eyes;
     private PlayerState playerState;
 
@@ -93,4 +94,13 @@ public class UIController : MonoBehaviour
         float secs = Mathf.FloorToInt(timeDisplay % 60);
         timeText.text = string.Format("{0}:{1:00}", mins, secs);
     }
+    public void playerInteractUIToggle(bool showText){
+        if (showText)
+        {
+            interactText.enabled = true;
+        } else {
+            interactText.enabled = false;
+
+        }
+    }   
 }

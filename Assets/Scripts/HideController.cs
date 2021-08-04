@@ -49,6 +49,8 @@ public class HideController : MonoBehaviour
     {
         if (c.tag == "Player")
         {
+            // the third child of the players parent is the canvas;
+            Player.transform.parent.GetChild(2).GetComponent<UIController>().playerInteractUIToggle(true);
             canEnter = true;
             //play sound
             GetComponent<AudioSource>().PlayOneShot(openClip);
@@ -61,6 +63,7 @@ public class HideController : MonoBehaviour
     {
         if (c.tag == "Player")
         {
+            Player.transform.parent.GetChild(2).GetComponent<UIController>().playerInteractUIToggle(false);
             canEnter = false;
             GetComponent<AudioSource>().PlayOneShot(closeClip);
             anim.SetBool("Open", false);

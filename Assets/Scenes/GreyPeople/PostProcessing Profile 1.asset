@@ -32,7 +32,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: PostProcessing Profile
+  m_Name: PostProcessing Profile 1
   m_EditorClassIdentifier: 
   components:
   - {fileID: 7860515998130579919}
@@ -217,7 +217,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 9.13
   compensation:
     m_OverrideState: 0
     m_Value: 0
