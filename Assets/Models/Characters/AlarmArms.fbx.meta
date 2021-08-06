@@ -9,7 +9,12 @@ ModelImporter:
   - first:
       74: -4791504522942941401
     second: Armature|Armature|mixamo.com|Layer0
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Invis
+    second: {fileID: 2100000, guid: 44a7213ae06e76144944d3ae1fbd1e48, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
