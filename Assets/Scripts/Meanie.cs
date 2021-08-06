@@ -8,18 +8,22 @@ public class Meanie : MonoBehaviour
     private Vector3[] points;
     private int destination = 0;
     private NavMeshAgent agent;
+    private Animator animator;
     private GameObject player;
     public bool chasing;
     private NavMeshHit hit;
+    private PlayerState playerState;
     private bool alerted;
 
     void Start()
     {
         chasing = false;
         alerted = false;
+        playerState = GameObject.FindWithTag("Player").gameObject.GetComponent<PlayerState>();
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
-
+        animator.Play("RunForwardsJump_Frame01", 0);
         // Set up patrol points based of child points
         points = new Vector3[transform.Find("Path").childCount];
 
@@ -32,13 +36,16 @@ public class Meanie : MonoBehaviour
 
     void Update()
     {
+        animator.SetFloat("MoveX", agent.velocity.x/3);
+        animator.SetFloat("MoveZ", agent.velocity.z/3);
         // Alarm sounded, player location is known
         if (alerted)
         {
             agent.destination = player.transform.position;
             chasing = true;
+            playerState.hidden = false;
+            
         }
-
         else
         {
 
@@ -46,7 +53,7 @@ public class Meanie : MonoBehaviour
             float dist = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
             // Catch the player
-            if (dist < 1)
+            if (dist < 1 && chasing)
             {
                 player.gameObject.GetComponent<characterMovement>().Caught();
             }
@@ -57,6 +64,8 @@ public class Meanie : MonoBehaviour
                 // Lost sight of the player
                 if (agent.Raycast(player.transform.position, out hit) || dist > 50 || !player.activeSelf)
                 {
+                    playerState.hidden = true;
+
                     chasing = false;
                     GotoNextPoint();
                 }
@@ -72,6 +81,7 @@ public class Meanie : MonoBehaviour
             else if (!agent.Raycast(player.transform.position, out hit) && player.activeSelf &&
                 dist < 30 && angle > -70 && angle < 70)
             {
+                playerState.hidden = false;
                 chasing = true;
                 agent.destination = player.transform.position;
             }
@@ -87,6 +97,7 @@ public class Meanie : MonoBehaviour
                 }
                 else
                 {
+                    playerState.hidden = true;
                     chasing = false;
                     GotoNextPoint();
                 }
