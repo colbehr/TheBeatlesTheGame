@@ -13,7 +13,10 @@ public class Meanie : MonoBehaviour
     public bool chasing;
     private NavMeshHit hit;
     private PlayerState playerState;
+    public AudioClip[] steps;
     private bool alerted;
+    public AudioClip[] lines;
+    bool playing = false;
 
     void Start()
     {
@@ -61,6 +64,11 @@ public class Meanie : MonoBehaviour
             // Currently chasing the player
             if (chasing)
             {
+                if (!playing)
+                {
+                    GetComponents<AudioSource>()[1].PlayOneShot(lines[Random.Range(0,steps.Length-1)]);
+                    playing = true;
+                } 
                 // Lost sight of the player
                 if (agent.Raycast(player.transform.position, out hit) || dist > 50 || !player.activeSelf)
                 {
@@ -68,6 +76,8 @@ public class Meanie : MonoBehaviour
 
                     chasing = false;
                     GotoNextPoint();
+                    playing = false;
+
                 }
 
                 // Keep chasing
@@ -129,4 +139,8 @@ public class Meanie : MonoBehaviour
         alerted = false;
         agent.destination = points[destination];
     }
+    public void playStepSound(){
+        GetComponent<AudioSource>().PlayOneShot(steps[Random.Range(0,steps.Length)]);
+    }
+
 }

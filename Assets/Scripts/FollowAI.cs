@@ -7,6 +7,7 @@ public class FollowAI : MonoBehaviour
     public GameObject followObject;
     NavMeshAgent agent;
     Animator animator;
+    public AudioClip[] steps;
 
     public float maxTime = 1;
     float timer = 0.0f;
@@ -31,4 +32,9 @@ public class FollowAI : MonoBehaviour
         animator.SetFloat("MoveZ", agent.velocity.z);
         
     }
+
+     public void playStepSound(){
+        GetComponent<AudioSource>().PlayOneShot(steps[Random.Range(0,steps.Length)]);
+    }
+
 }

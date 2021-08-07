@@ -286,7 +286,7 @@ MonoBehaviour:
   openClip: {fileID: 8300000, guid: 980965b30186f994888abcea0f931eb3, type: 3}
   closeClip: {fileID: 8300000, guid: e1c157099748cae4e993ede51a0929f0, type: 3}
   HideCamera: {fileID: 8670644315454851500}
-  rotSpeed: 100
+  rotSpeed: 200
 --- !u!82 &8670644315584274716
 AudioSource:
   m_ObjectHideFlags: 0

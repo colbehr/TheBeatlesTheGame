@@ -14,6 +14,7 @@ public class characterMovement : MonoBehaviour
     Vector3 rootMotion;
     Vector3 velocity;
     bool isJumping;
+    public AudioClip[] steps;
     public float turn = 15;
     Camera mainCamera;
 
@@ -85,5 +86,9 @@ public class characterMovement : MonoBehaviour
     public void Caught()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void playStepSound(){
+        GetComponent<AudioSource>().PlayOneShot(steps[Random.Range(0,steps.Length)]);
     }
 }
