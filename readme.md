@@ -4,7 +4,7 @@ The Beatles: The Yellow Submarine - The Game
 This game is themed after the Beatles movie, Yellow Submarine. The main objective is to get through the level without being seen by the various enemies. The player will collect a Beatle at the end of each level. The aim is to collect all four Beatles. The player wins when they get into range of the exit point. They lose when they get spotted by an enemy and get reset to the beginning of the map. The game has checkpoints after each Beatle is collected. 
 
 
-![Game Screenshot](https://raw.githubusercontent.com/colbehr/TheBeatlesTheGame/main/Screenshot/Beatles.png?token=AGKTQ6XG7OZ2DK3H7OZK5WDBD4XEM)
+![Game Screenshot](https://www.colbehr.com/img/Beatles.png)
 
 ---
 
