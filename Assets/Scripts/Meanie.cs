@@ -51,8 +51,9 @@ public class Meanie : MonoBehaviour
         }
         else
         {
-
-            float angle = Vector3.Angle(player.transform.position - transform.position, transform.forward);
+            //angle from player to gameobjects
+            float angle = Vector3.Angle(player.transform.position - gameObject.transform.position, transform.forward);
+            //distance from player to gameobject
             float dist = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
             // Catch the player
@@ -66,14 +67,14 @@ public class Meanie : MonoBehaviour
             {
                 if (!playing)
                 {
-                    GetComponents<AudioSource>()[1].PlayOneShot(lines[Random.Range(0,steps.Length-1)]);
+                    GetComponents<AudioSource>()[1].PlayOneShot(lines[Random.Range(0,lines.Length)]);
                     playing = true;
                 } 
                 // Lost sight of the player
                 if (agent.Raycast(player.transform.position, out hit) || dist > 50 || !player.activeSelf)
                 {
+                    Debug.DrawRay(player.transform.position, player.transform.forward * 50, Color.green, 4);
                     playerState.hidden = true;
-
                     chasing = false;
                     GotoNextPoint();
                     playing = false;
@@ -91,6 +92,7 @@ public class Meanie : MonoBehaviour
             else if (!agent.Raycast(player.transform.position, out hit) && player.activeSelf &&
                 dist < 30 && angle > -70 && angle < 70)
             {
+                Debug.DrawRay(player.transform.position, player.transform.forward * 30, Color.red, 4); 
                 playerState.hidden = false;
                 chasing = true;
                 agent.destination = player.transform.position;
