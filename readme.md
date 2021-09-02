@@ -21,7 +21,7 @@ This game is themed after the Beatles movie, The Yellow Submarine. The main obje
 ---
 
 ## Setup
-Clone this repo and add to your Unity hub.
+Clone this repo and add to your Unity hub. Note: This game was built on Unity 2019.4.28f1 LTS.
 
 ---
 
